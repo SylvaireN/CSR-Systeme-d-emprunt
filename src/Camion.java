@@ -6,7 +6,7 @@ class Camion extends Thread {
         this.sites = sites;
         this.running = true;
     }
-  
+    
     @Override
     public void run() {
         while (running) {
