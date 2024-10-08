@@ -2,7 +2,7 @@ class Camion extends Thread {
     private Site[] sites;
     private boolean running;
 
-    public Camion(Site[] sites) {
+    public Camion(Site[] sites) { 
         this.sites = sites;
         this.running = true;
     }
