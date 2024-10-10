@@ -18,18 +18,22 @@ class Site {
         while (stock == 0 || isServing) {
             wait();
         }
+        System.out.println("Avant emprunt au site " + id + ": stock = " + stock);
         stock--;
         isServing = true;
         notifyAll();
+        //System.out.println("Après emprunt au site " + id + ": stock = " + stock);
     }
 
     public synchronized void restituerVelo() throws InterruptedException {
         while (stock == STOCK_MAX || isServing) {
             wait();
         }
+        System.out.println("Avant restitution au site " + id + ": stock = " + stock);
         stock++;
         isServing = true;
         notifyAll();
+        //System.out.println("Après restitution au site " + id + ": stock = " + stock);
     }
 
     public synchronized void camionArrive() {

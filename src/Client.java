@@ -11,10 +11,12 @@ class Client extends Thread {
     public void run() {
         try {
             siteDepart.emprunterVelo();
-            System.out.println("Client emprunte un vélo au site " + siteDepart.getId());
+            System.out.println("Client emprunte un Vélo au site " + siteDepart.getId() + "  Stock actuel après emprunt au site " + siteDepart.getId() + ": " +" stock = "+ siteDepart.getStock());
+            //System.out.println();
             Thread.sleep(Math.abs(siteDepart.getId() - siteArrivee.getId()) * 1000);
             siteArrivee.restituerVelo();
-            System.out.println("Client restitue un vélo au site " + siteArrivee.getId());
+            System.out.println("Client restitue un Vélo au site " + siteArrivee.getId() + "  Stock actuel après restitution au site " + siteArrivee.getId() + ": " +" stock = "+ siteArrivee.getStock());
+            //System.out.println("Stock actuel après restitution au site " + siteArrivee.getId() + ": " +" Stock = "+ siteArrivee.getStock());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
